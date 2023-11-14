@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+   <PropertyGroup>
+      <OutputType>Exe</OutputType>
+      <TargetFramework>net6.0</TargetFramework>
+      <ImplicitUsings>enable</ImplicitUsings>
+      <Nullable>enable</Nullable>
+   </PropertyGroup>
+
+   <ItemGroup>
+      <ProjectReference Include="..\..\RPBCommon\RPBCommon\SMG1Common.csproj" />
+      <ProjectReference Include="..\..\RPBNet\RPBNet\RPBNet.csproj" />
+   </ItemGroup>
+   <PropertyGroup>
+      <!-- Persist the source generator (and other) files to disk -->
+      <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
+      <!-- 👇 The "base" path for the source generators -->
+      <GeneratedFolder>Generated</GeneratedFolder>
+      <!-- 👇 Write the output for each target framework to a different sub-folder -->
+      <CompilerGeneratedFilesOutputPath>$(GeneratedFolder)\$(TargetFramework)</CompilerGeneratedFilesOutputPath>
+   </PropertyGroup>
+   <ItemGroup>
+      <!-- 👇 Exclude everything in the base folder -->
+      <Compile Remove="$(GeneratedFolder)/**/*.cs" />
+   </ItemGroup>
+
+</Project>
